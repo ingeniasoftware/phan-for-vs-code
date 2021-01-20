@@ -4,7 +4,8 @@
 	"description": "Simple Phan integration for Visual Studio Code.",
 	"publisher": "IngeniaSoftware",
 	"repository": "https://github.com/ingeniasoftware/phan-for-vs-code",
-	"version": "1.0.0",
+	"icon": "https://ingenia.me/phan-for-vs-code-logo.png",
+	"version": "1.0.1",
 	"engines": {
 		"vscode": "^1.52.0"
 	},

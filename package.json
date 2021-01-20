@@ -1,0 +1,68 @@
+{
+	"name": "phan-for-vs-code",
+	"displayName": "Phan for VSCode",
+	"description": "Simple Phan integration for Visual Studio Code.",
+	"publisher": "IngeniaSoftware",
+	"repository": "https://github.com/ingeniasoftware/phan-for-vs-code",
+	"version": "1.0.0",
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:phan-for-vs-code.invokePhanInWorkspace",
+		"onCommand:phan-for-vs-code.invokePhanInCurrentFile",
+		"onLanguage:php",
+		"workspaceContains:**/*.php"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "phan-for-vs-code.invokePhanInWorkspace",
+				"title": "Run Phan in workspace"
+			},
+			{
+				"command": "phan-for-vs-code.invokePhanInCurrentFile",
+				"title": "Run Phan in current file"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Phan for Visual Studio",
+			"properties": {
+			  "vsphan.phanPath": {
+				"type": [
+				  "string",
+				  "null"
+				],
+				"default": null,
+				"markdownDescription": "The (Composer) Phan binary. For Windows, use the `phan.bat` file"
+			  }
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.52.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.15.0",
+		"@typescript-eslint/eslint-plugin": "^4.9.0",
+		"@typescript-eslint/parser": "^4.9.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.1.2",
+		"vscode-test": "^1.4.1"
+	}
+}
